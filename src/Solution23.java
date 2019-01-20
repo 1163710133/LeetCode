@@ -12,6 +12,7 @@
 输出: 1->1->2->3->4->4->5->6
  */
 
+import java.lang.*;
 import java.util.HashSet;
 import java.util.Set;
 
