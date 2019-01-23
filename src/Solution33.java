@@ -20,23 +20,24 @@
  */
 public class Solution33 {
     public int search(int[] nums, int target) {
-        int result=0;
-        if(nums.length==0) return -1;
-        return searchBetween(nums,0,nums.length-1,target);
+        int result = 0;
+        if (nums.length == 0) return -1;
+        return searchBetween(nums, 0, nums.length - 1, target);
     }
-    private static int searchBetween(int[] nums,int i,int j,int target){
+
+    private static int searchBetween(int[] nums, int i, int j, int target) {
         int result;
-        if(i>j||i==j&&target!=nums[i]) return -1;
-        if(target==nums[i]) return i;
-        if(target==nums[j]) return j;
-        if(target<nums[i]&&target>nums[j]) return -1;
-        if(nums[i]<nums[(i+j)/2]){
-            if (target == nums[(i+j)/2]) return (i+j)/2;
-            if(target>nums[i]&&target<nums[(i+j)/2]) return searchBetween(nums,i+1,(i+j)/2-1,target);
-            else return searchBetween(nums,(i+j)/2+1,j-1,target);
-        }
-        else {
-            if (target == nums[(i + j) / 2]) return (i + j)/2;
+        if (i > j || i == j && target != nums[i]) return -1;
+        if (target == nums[i]) return i;
+        if (target == nums[j]) return j;
+        if (target < nums[i] && target > nums[j]) return -1;
+        if (nums[i] < nums[(i + j) / 2]) {
+            if (target == nums[(i + j) / 2]) return (i + j) / 2;
+            if (target > nums[i] && target < nums[(i + j) / 2])
+                return searchBetween(nums, i + 1, (i + j) / 2 - 1, target);
+            else return searchBetween(nums, (i + j) / 2 + 1, j - 1, target);
+        } else {
+            if (target == nums[(i + j) / 2]) return (i + j) / 2;
             if (target > nums[(i + j) / 2] && target < nums[j]) return searchBetween(nums, (i + j) / 2, j - 1, target);
             else return searchBetween(nums, i + 1, (i + j) / 2 - 1, target);
         }

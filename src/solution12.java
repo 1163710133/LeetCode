@@ -35,60 +35,48 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
 class solution12 {
     public String intToRoman(int num) {
         StringBuilder result = new StringBuilder();
-        for(int i=num;i>0;){
-            if(i>=1000){
+        for (int i = num; i > 0; ) {
+            if (i >= 1000) {
                 result.append("M");
-                i-=1000;
-            }
-            else if(i>=900){
+                i -= 1000;
+            } else if (i >= 900) {
                 result.append("CM");
-                i-=900;
-            }
-            else if(i>=500){
+                i -= 900;
+            } else if (i >= 500) {
                 result.append("D");
-                i-=500;
-            }
-            else if(i>=400){
+                i -= 500;
+            } else if (i >= 400) {
                 result.append("CD");
-                i-=400;
-            }
-            else if(i>=100){
+                i -= 400;
+            } else if (i >= 100) {
                 result.append("C");
-                i-=100;
-            }
-            else if(i>=90){
+                i -= 100;
+            } else if (i >= 90) {
                 result.append("XC");
-                i-=90;
-            }
-            else if(i>=50){
+                i -= 90;
+            } else if (i >= 50) {
                 result.append("L");
-                i-=50;
-            }
-            else if(i>=40){
+                i -= 50;
+            } else if (i >= 40) {
                 result.append("XL");
-                i-=40;
-            }
-            else if(i>=10){
+                i -= 40;
+            } else if (i >= 10) {
                 result.append("X");
-                i-=10;
-            }
-            else if(i>=9){
+                i -= 10;
+            } else if (i >= 9) {
                 result.append("IX");
-                i-=9;
-            }
-            else if(i>=5){
+                i -= 9;
+            } else if (i >= 5) {
                 result.append("V");
-                i-=5;
-            }
-            else if(i>=4){
+                i -= 5;
+            } else if (i >= 4) {
                 result.append("IV");
-                i-=4;
-            }
-            else if(i>=1){
+                i -= 4;
+            } else if (i >= 1) {
                 result.append("I");
                 i--;
+            } else {
             }
-            else{}
         }
         return result.toString();
     }

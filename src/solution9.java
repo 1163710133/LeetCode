@@ -14,10 +14,10 @@
  */
 class solution9 {
     public boolean isPalindrome(int x) {
-        char[] a= String.valueOf(x).toCharArray();
-        int length= a.length;
-        for(int i=0,j=length-1;i<j;i++,j--){
-            if(a[i]!=a[j]){
+        char[] a = String.valueOf(x).toCharArray();
+        int length = a.length;
+        for (int i = 0, j = length - 1; i < j; i++, j--) {
+            if (a[i] != a[j]) {
                 return false;
             }
         }

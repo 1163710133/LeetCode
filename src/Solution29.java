@@ -19,44 +19,41 @@
  */
 public class Solution29 {
     public int divide(int dividend, int divisor) {
-        if(dividend==Integer.MIN_VALUE&&divisor==-1){
+        if (dividend == Integer.MIN_VALUE && divisor == -1) {
             return Integer.MAX_VALUE;
         }
-        if(divisor==0){
+        if (divisor == 0) {
             return Integer.MAX_VALUE;
         }
-        if(divisor==1){
+        if (divisor == 1) {
             return dividend;
         }
-        int number=-1;
-        int flag=1;
-        long temp1,temp2;
-        if(dividend>0&&divisor<0){
-            temp1=dividend;
-            temp2=-divisor;
-            flag=-1;
+        int number = -1;
+        int flag = 1;
+        long temp1, temp2;
+        if (dividend > 0 && divisor < 0) {
+            temp1 = dividend;
+            temp2 = -divisor;
+            flag = -1;
+        } else if (dividend < 0 && divisor > 0) {
+            temp1 = dividend;
+            temp1 = -temp1;
+            temp2 = divisor;
+            flag = -1;
+        } else if (dividend < 0) {
+            temp1 = dividend;
+            temp1 = -temp1;
+            temp2 = -divisor;
+            flag = 1;
+        } else {
+            temp1 = dividend;
+            temp2 = divisor;
         }
-        else if(dividend<0&&divisor>0){
-            temp1=dividend;
-            temp1=-temp1;
-            temp2=divisor;
-            flag=-1;
-        }
-        else if(dividend<0){
-            temp1=dividend;
-            temp1=-temp1;
-            temp2=-divisor;
-            flag=1;
-        }
-        else{
-            temp1=dividend;
-            temp2=divisor;
-        }
-        long temp=temp1;
-        while(temp>=0){
-            temp-=temp2;
+        long temp = temp1;
+        while (temp >= 0) {
+            temp -= temp2;
             number++;
         }
-        return number*flag;
+        return number * flag;
     }
 }

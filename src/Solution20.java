@@ -33,21 +33,19 @@ import java.util.Stack;
 public class Solution20 {
     public boolean isValid(String s) {
         char[] temp = s.toCharArray();
-        Stack<String> a= new Stack<>();
-        for(int i=0;i<temp.length;i++){
-            if(!a.empty()){
-                String b=a.pop();
-                if(b.equals("(")&&temp[i]==')'||b.equals("{")&&temp[i]=='}'||b.equals("[")&&temp[i]==']'){}
-                else {
+        Stack<String> a = new Stack<>();
+        for (int i = 0; i < temp.length; i++) {
+            if (!a.empty()) {
+                String b = a.pop();
+                if (b.equals("(") && temp[i] == ')' || b.equals("{") && temp[i] == '}' || b.equals("[") && temp[i] == ']') {
+                } else {
                     a.push(b);
                     a.push(String.valueOf(temp[i]));
                 }
-            }
-            else a.push(String.valueOf(temp[i]));
+            } else a.push(String.valueOf(temp[i]));
         }
-        if(a.empty()){
+        if (a.empty()) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 }

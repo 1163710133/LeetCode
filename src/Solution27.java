@@ -24,11 +24,11 @@
  */
 public class Solution27 {
     public int removeElement(int[] nums, int val) {
-        int length=nums.length;
-        for(int i=0;i<length;i++){
-            if(nums[i]==val){
-                for(int j=i;j<length;j++){
-                    nums[i]=nums[j];
+        int length = nums.length;
+        for (int i = 0; i < length; i++) {
+            if (nums[i] == val) {
+                for (int j = i; j < length; j++) {
+                    nums[i] = nums[j];
                 }
                 length--;
                 i--;

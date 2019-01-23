@@ -20,20 +20,19 @@ public class Solution38 {
     public String countAndSay(int n) {
         char[] one;
         StringBuffer result = new StringBuffer("1");
-        for(int i=1;i<n;i++){
-            one=result.toString().toCharArray();
-            result= new StringBuffer();
-            char temp=one[0];
-            int number=1;
-            for(int j=1;j<one.length;j++){
-                if(one[j]==temp){
+        for (int i = 1; i < n; i++) {
+            one = result.toString().toCharArray();
+            result = new StringBuffer();
+            char temp = one[0];
+            int number = 1;
+            for (int j = 1; j < one.length; j++) {
+                if (one[j] == temp) {
                     number++;
-                }
-                else{
+                } else {
                     result.append(number);
                     result.append(temp);
-                    temp=one[j];
-                    number=1;
+                    temp = one[j];
+                    number = 1;
                 }
             }
             result.append(number);

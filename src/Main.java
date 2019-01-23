@@ -5,6 +5,7 @@ public class Main {
 
     }
 }
+
 /*
 请你来实现一个 atoi 函数，使其能将字符串转换成整数。
 首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。
@@ -37,63 +38,54 @@ public class Main {
 解释: 数字 "-91283472332" 超过 32 位有符号整数范围。
      因此返回 INT_MIN (−231) 。
  */
-class Solution8{
-    public int myAtoi(String str){
+class Solution8 {
+    public int myAtoi(String str) {
         char[] string = str.toCharArray();
         int length = str.length();
         int flag = 0;
-        boolean begin=false;
+        boolean begin = false;
         StringBuilder result = new StringBuilder();
-        for(int i =0;i<length;i++){
-            if(string[i]==' '&&flag==0){
+        for (int i = 0; i < length; i++) {
+            if (string[i] == ' ' && flag == 0) {
                 continue;
             }
-            if(string[i]=='+'&&flag==0){
-                flag=1;
-            }
-            else if(string[i]=='-'&&flag==0){
-                flag=-1;
-            }
-            else if(string[i]>=48&&string[i]<=57&&flag !=0){
-                if(string[i]=='0'&&result.length()==0)
+            if (string[i] == '+' && flag == 0) {
+                flag = 1;
+            } else if (string[i] == '-' && flag == 0) {
+                flag = -1;
+            } else if (string[i] >= 48 && string[i] <= 57 && flag != 0) {
+                if (string[i] == '0' && result.length() == 0)
                     continue;
                 result.append(string[i]);
-            }
-            else if(string[i]>=48&&string[i]<=57&&flag==0){
-                if(string[i]=='0')
-                {
-                    flag=1;
+            } else if (string[i] >= 48 && string[i] <= 57 && flag == 0) {
+                if (string[i] == '0') {
+                    flag = 1;
                     continue;
                 }
 
-                flag=1;
+                flag = 1;
                 result.append(string[i]);
-            }
-            else if(flag!=0){
+            } else if (flag != 0) {
                 break;
-            }
-            else{
+            } else {
                 return 0;
             }
         }
-        if(result.length()==0||length==0){
+        if (result.length() == 0 || length == 0) {
             return 0;
         }
-        if(result.length()>10){
-            if(flag ==1){
+        if (result.length() > 10) {
+            if (flag == 1) {
                 return Integer.MAX_VALUE;
-            }
-            else{
+            } else {
                 return Integer.MIN_VALUE;
             }
         }
-        long number=Long.parseLong(result.toString())*flag;
-        if(number<Integer.MIN_VALUE){
+        long number = Long.parseLong(result.toString()) * flag;
+        if (number < Integer.MIN_VALUE) {
             return Integer.MIN_VALUE;
-        }
-        else if(number>Integer.MAX_VALUE){
+        } else if (number > Integer.MAX_VALUE) {
             return Integer.MAX_VALUE;
-        }
-        else return (int)number;
+        } else return (int) number;
     }
 }

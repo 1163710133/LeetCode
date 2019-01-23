@@ -28,13 +28,14 @@ candidates 中的每个数字在每个组合中只能使用一次。
  */
 public class Solution40 {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        if(candidates== null|| candidates.length ==0) return null;
+        if (candidates == null || candidates.length == 0) return null;
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(candidates);
-        backTracking(result,new LinkedList<>(),candidates,target,0);
+        backTracking(result, new LinkedList<>(), candidates, target, 0);
         return result;
     }
-    private void backTracking(List<List<Integer>> result,LinkedList<Integer> current,int [] candidates,int target ,int start) {
+
+    private void backTracking(List<List<Integer>> result, LinkedList<Integer> current, int[] candidates, int target, int start) {
         if (target == 0) {
             result.add(new ArrayList<>(current));
             return;

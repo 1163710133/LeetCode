@@ -16,22 +16,23 @@
   [-2,  0, 0, 2]
 ]
  */
+
 import java.util.*;
 
 public class Solution18 {
-    public List<List<Integer>> fourSum(int[] nums, int target){
-        Set<List<Integer>> set=new HashSet<>();
-        Map<Integer,Integer> map=new HashMap<>();
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        Set<List<Integer>> set = new HashSet<>();
+        Map<Integer, Integer> map = new HashMap<>();
         Arrays.sort(nums);
-        for(int i=0;i<nums.length;++i){
-            map.put(nums[i],i);
+        for (int i = 0; i < nums.length; ++i) {
+            map.put(nums[i], i);
         }
-        for(int i=0;i<nums.length-2;++i){
-            for(int j=i+1;j<nums.length-1;++j){
-                for(int h=j+1;h<nums.length;h++){
-                    int t=target-(nums[i]+nums[j]+nums[h]);
-                    if(map.containsKey(t)&&map.get(t)>h){
-                        set.add(Arrays.asList(nums[i],nums[j],nums[h],t));
+        for (int i = 0; i < nums.length - 2; ++i) {
+            for (int j = i + 1; j < nums.length - 1; ++j) {
+                for (int h = j + 1; h < nums.length; h++) {
+                    int t = target - (nums[i] + nums[j] + nums[h]);
+                    if (map.containsKey(t) && map.get(t) > h) {
+                        set.add(Arrays.asList(nums[i], nums[j], nums[h], t));
                     }
                 }
 

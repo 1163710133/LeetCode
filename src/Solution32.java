@@ -14,22 +14,21 @@
  */
 public class Solution32 {
     public int longestValidParentheses(String s) {
-        char[] parameter=s.toCharArray();
-        if(s.length()==0) return 0;
-        int i,j,m,n,max=0;
-        for(i=0;i<parameter.length;i++){
-            if(parameter[i]=='('){
-                m=1;n=0;
-                for(j=i+1;j<parameter.length;j++){
-                    if(parameter[j]=='(') m++;
-                    else if(parameter[j]==')'){
+        char[] parameter = s.toCharArray();
+        if (s.length() == 0) return 0;
+        int i, j, m, n, max = 0;
+        for (i = 0; i < parameter.length; i++) {
+            if (parameter[i] == '(') {
+                m = 1;
+                n = 0;
+                for (j = i + 1; j < parameter.length; j++) {
+                    if (parameter[j] == '(') m++;
+                    else if (parameter[j] == ')') {
                         n++;
-                        if(m==n&&2*m>max){
-                            max=2*m;
-                        }
-                        else if(m<n) break;
-                    }
-                    else return max;
+                        if (m == n && 2 * m > max) {
+                            max = 2 * m;
+                        } else if (m < n) break;
+                    } else return max;
                 }
             }
         }

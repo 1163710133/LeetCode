@@ -17,28 +17,28 @@ import java.util.List;
  */
 public class Solution46 {
     public List<List<Integer>> permute(int[] nums) {
-        LinkedList<List<Integer>> result= new LinkedList<>();
+        LinkedList<List<Integer>> result = new LinkedList<>();
         //initalize the list;
-        for(int i=0;i<nums.length;i++){
-            List<Integer> temp=new LinkedList<>();
+        for (int i = 0; i < nums.length; i++) {
+            List<Integer> temp = new LinkedList<>();
             temp.add(nums[i]);
             result.add(temp);
         }
-        LinkedList<List<Integer>> result1= new LinkedList<>();
-        for(int i=1;i<nums.length;i++){
-            while(!result.isEmpty()){
-                List temp =result.pop();
-                for(int j=0;j<nums.length;j++){
-                    if(!temp.contains(nums[j])) {
+        LinkedList<List<Integer>> result1 = new LinkedList<>();
+        for (int i = 1; i < nums.length; i++) {
+            while (!result.isEmpty()) {
+                List temp = result.pop();
+                for (int j = 0; j < nums.length; j++) {
+                    if (!temp.contains(nums[j])) {
                         List<Integer> one = new LinkedList<>(temp);
                         one.add(nums[j]);
                         result1.add(one);
                     }
                 }
             }
-            LinkedList temp=result;
-            result=result1;
-            result1=temp;
+            LinkedList temp = result;
+            result = result1;
+            result1 = temp;
         }
         return result;
     }

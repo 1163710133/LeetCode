@@ -14,36 +14,37 @@
 
 你能尝试使用一趟扫描实现吗？
  */
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) { val = x; }
  * }
  */
 class Solution19 {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        int number=0;
-        ListNode temp=head;
-        while(temp!=null){
+        int number = 0;
+        ListNode temp = head;
+        while (temp != null) {
             number++;
-            temp=temp.next;
+            temp = temp.next;
         }
-        temp=head;
-        if(number-n==0){
+        temp = head;
+        if (number - n == 0) {
             return head.next;
         }
-        for(int i=0;i<number-n;i++){
-            if(i==number-n-1&&n==1){
-                temp.next=null;
+        for (int i = 0; i < number - n; i++) {
+            if (i == number - n - 1 && n == 1) {
+                temp.next = null;
                 return head;
             }
-            if(i==number-n-1){
-                temp.next=temp.next.next;
+            if (i == number - n - 1) {
+                temp.next = temp.next.next;
                 return head;
             }
-            temp=temp.next;
+            temp = temp.next;
         }
         return null;//error: missing return statement
     }

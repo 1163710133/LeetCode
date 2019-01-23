@@ -20,17 +20,17 @@
  */
 public class Solution48 {
     public void rotate(int[][] matrix) {
-        int length=matrix.length;
-        for(int i=0;i<length/2;i++){
-            int start=i;
-            int end = length-1-i;
-            for(int j=0;j<end-start;j++){//曾经没有想清楚这里为什么是<而不是<=，终于懂了。
+        int length = matrix.length;
+        for (int i = 0; i < length / 2; i++) {
+            int start = i;
+            int end = length - 1 - i;
+            for (int j = 0; j < end - start; j++) {//曾经没有想清楚这里为什么是<而不是<=，终于懂了。
                 // 因为就算是六维矩阵，最外层只有20个元素，而不是二十四个。每行与列共用了四个角落的四个元素。
-                int temp = matrix[start][start+j];
-                matrix[start][start+j]=matrix[end-j][start];
-                matrix[end-j][start]=matrix[end][end-j];
-                matrix[end][end-j]=matrix[start+j][end];
-                matrix[start+j][end]=temp;
+                int temp = matrix[start][start + j];
+                matrix[start][start + j] = matrix[end - j][start];
+                matrix[end - j][start] = matrix[end][end - j];
+                matrix[end][end - j] = matrix[start + j][end];
+                matrix[start + j][end] = temp;
             }
         }
     }

@@ -10,11 +10,11 @@
  */
 class solution11 {
     public int maxArea(int[] height) {
-        int result=0;
-        for(int i=0;i<height.length;i++){
-            for(int j=i+1;j<height.length;j++){
-                int temp=Math.min(height[i],height[j])*(j-i);
-                result = (temp>result)?temp:result;
+        int result = 0;
+        for (int i = 0; i < height.length; i++) {
+            for (int j = i + 1; j < height.length; j++) {
+                int temp = Math.min(height[i], height[j]) * (j - i);
+                result = (temp > result) ? temp : result;
             }
         }
         return result;

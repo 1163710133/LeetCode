@@ -17,20 +17,20 @@ import java.util.*;
  */
 public class Solution49 {
     public List<List<String>> groupAnagrams(String[] strs) {
-        if(strs.length==0) return null;
-        List<List<String>> result= new ArrayList<>();
-        Map<String,List<String>> answer= new HashMap<String,List<String>>();
+        if (strs.length == 0) return null;
+        List<List<String>> result = new ArrayList<>();
+        Map<String, List<String>> answer = new HashMap<String, List<String>>();
         List<String> temp;
-        for(int i=0;i<strs.length;i++) {
+        for (int i = 0; i < strs.length; i++) {
             char[] a = strs[i].toCharArray();
             char[] atemp = a.clone();
             Arrays.sort(atemp);
             String b = String.valueOf(atemp);
 //            System.out.println(b+"");
-            if(answer.get(b)!=null) {
+            if (answer.get(b) != null) {
                 temp = answer.get(b);
                 temp.add(String.valueOf(a));
-            }else
+            } else
 //            int flag=0;
 //            for (String string : answer.keySet()) {
 //                //System.out.println(string);
@@ -52,7 +52,7 @@ public class Solution49 {
                 }});
             }
         }
-        for(String i:answer.keySet()){
+        for (String i : answer.keySet()) {
             //System.out.println(a);
             //System.out.println(answer.get(a).toString());
             result.add(answer.get(i));
