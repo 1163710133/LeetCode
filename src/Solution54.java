@@ -25,19 +25,26 @@ public class Solution54 {
         List<Integer> result= new ArrayList<>();
         int row_number,column_number;
         row_number = matrix.length;
+        if(row_number==0) return result;
         column_number= matrix[0].length;
-        for(int i =0,j=0;i<(row_number+1)/2&&j<(column_number+1)/2;i++,j++){
-            for(int h=i;h<column_number;h++){
+        for(int i =0;i<Math.min((row_number+1)/2,(column_number+1)/2);i++){
+            for(int h=i;h<column_number-i;h++){
                 result.add(matrix[i][h]);
+                //System.out.println("a");
             }
-            for(int h= i;h<row_number-i;h++){
-                result.add(matrix[column_number-j-1][h]);
+            for(int h= i+1;h<row_number-1-i;h++){
+                result.add(matrix[h][column_number-i-1]);
+                //System.out.println("b");
             }
-            for(int h=column_number-i-1;h>i;h--){
+            for(int h=column_number-1-i;h>=i;h--){
+                if(row_number-1-i==i) continue;
                 result.add(matrix[row_number-i-1][h]);
+                //System.out.println("c");
             }
-            for(int h= row_number-i-1;h>i;h--) {
-                result.add(matrix[i][row_number - i - 1]);
+            for(int h= row_number-1-i-1;h>i;h--) {
+                if(column_number-1-i==i) continue;
+                result.add(matrix[h][i]);
+                //System.out.println("d");
             }
         }
         return result;
